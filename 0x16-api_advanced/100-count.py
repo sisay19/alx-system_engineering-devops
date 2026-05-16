@@ -7,16 +7,23 @@ and count occurrences of given keywords.
 import requests
 
 
-def count_words(subreddit, word_list, after=None, counts=None, multipliers=None):
+def count_words(
+        subreddit,
+        word_list,
+        after=None,
+        counts=None,
+        multipliers=None):
     """
     Recursively counts keyword occurrences in hot post titles of a subreddit.
 
     Args:
         subreddit (str): The name of the subreddit.
-        word_list (list): List of keywords (case-insensitive, duplicates allowed).
+        word_list (list): List of keywords (case-insensitive,
+                          duplicates allowed).
         after (str): Pagination token (internal use).
         counts (dict): Accumulator for counts (internal use).
-        multipliers (dict): Multiplier for each normalized keyword (internal use).
+        multipliers (dict): Multiplier for each normalized keyword
+                            (internal use).
     """
     # Initialize on first call
     if multipliers is None:
